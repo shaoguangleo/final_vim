@@ -5,7 +5,12 @@ set textwidth=0
 set tabstop=4
 set shiftwidth=4
 set autoindent
-set incsearch
+
+”set increase search, which will search immediately when type
+’set increase search, which will search immediately when type
+set incsearch   
+
+
 set ignorecase
 set ruler
 set wildmenu
