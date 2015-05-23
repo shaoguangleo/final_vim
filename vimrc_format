@@ -7,7 +7,6 @@ set shiftwidth=4
 set autoindent
 
 ”set increase search, which will search immediately when type
-’set increase search, which will search immediately when type
 set incsearch   
 
 
