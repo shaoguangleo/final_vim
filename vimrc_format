@@ -6,7 +6,7 @@ set tabstop=4
 set shiftwidth=4
 set autoindent
 
-"set increase search, which will search immediately when type
+"set increase search, which will search immediately when type (real-time)
 set incsearch   
 
 "set the number display
@@ -24,7 +24,5 @@ set cursorline
 
 "highlight the search result
 set hlsearch
-"search the match character real-time
-set incsearch
 "set a tab correspond 4 space
 set tabstop=4
