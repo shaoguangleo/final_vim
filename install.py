@@ -6,8 +6,14 @@ The script will install the final-vim automatically
 
 import subprocess
 import os
+import time
 
 'Here will download the whole final-vim git repo'
+print 'Welcome my friend!'
+stay_sec = 3
+print 'You are about to install final_vim. Ready? Let us do the awesome thing in %d seconds.' % stay_sec
+time.sleep(stay_sec)
+
 print '*'*60
 print 'Now begin to install the final_vim'
 print '*'*60
