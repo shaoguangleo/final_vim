@@ -32,7 +32,8 @@ def show_info():
 
 def install_plugins():
     'Will install all the bundle plugins'
-    cmd = 'vim +PluginInstall +qall 2>/dev/null'
+    #cmd = 'vim +PluginInstall +qall 2>/dev/null'
+    cmd = 'vim +PluginInstall +qall '
     res = subprocess.Popen(cmd, shell=True, stdout = subprocess.PIPE)
     stdoutput = res.communicate()
 
