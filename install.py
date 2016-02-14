@@ -10,7 +10,7 @@ import time
 
 
 # Default setting
-final_vim_path = os.environ['HOME'] + '/' + '.vim'
+final_vim_path = os.environ['HOME'] + '/' + '.final_vim'
 bundle_path = os.path.join(final_vim_path + '/bundle')
 
 def welcome():
@@ -70,7 +70,7 @@ empty = (temp == [])
 print empty
 
 if empty:
-    res = subprocess.Popen('git clone https://github.com/shaoguangleo/final_vim.git ~/.final_vim', shell=True, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+    res = subprocess.Popen('git clone https://github.com/shaoguangleo/final_vim.git ~/.vim', shell=True, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
     (stdoutput,erroutput) = res.communicate()
 else:
     os.chdir(final_vim_path)

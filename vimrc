@@ -6,7 +6,7 @@
 " Enjoy.
 "
 
-source ~/.vim/vimrc_general.vim
+source ~/.final_vim/vimrc_general.vim
 
 " If you develope python on MacOSX, then uncomment this
-source ~/.vim/macosx_python.vim
+source ~/.final_vim/macosx_python.vim
