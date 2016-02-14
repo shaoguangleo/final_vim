@@ -8,22 +8,37 @@ import subprocess
 import os
 import time
 
-'Here will download the whole final-vim git repo'
-print 'Welcome my friend!'
-stay_sec = 3
-print 'You are about to install final_vim. Ready? Let us do the awesome thing in %d seconds.' % stay_sec
-time.sleep(stay_sec)
+def welcome():
+    'Here will download the whole final-vim git repo'
+    print 'Welcome my friend!'
+    stay_sec = 3
+    print 'You are about to install final_vim. Ready? Let us do the awesome thing in %d seconds.' % stay_sec
+    time.sleep(stay_sec)
+    print '*'*60
+    print 'Now begin to install the final_vim'
+    print '*'*60
 
-print '*'*60
-print 'Now begin to install the final_vim'
-print '*'*60
+def show_info():
+    'Will show information when finish install final_vim'
+    print 'There you are.'
+    print 'Welcome to the final_vim world'
+    print 'Any issue/need/question, goto https://github.com/shaoguangleo/final_vim, see you there.'
+    print 'Anyway, Enjoy!!!'
 
-final_vim_path = os.environ['HOME'] + '/' + '.final_vim'
+
+final_vim_path = os.environ['HOME'] + '/' + '.vim'
+bundle_path = os.path.join(final_vim_path + '/bundle')
 
 if os.path.exists(final_vim_path):
-    print 'Directory had been created'
+    print 'Final_vim directory had been created'
 else:
     res = subprocess.Popen('mkdir ' + final_vim_path, shell=True, stdout=subprocess.PIPE)
+    (stdoutput,erroutput) = res.communicate()
+
+if os.path.exists(bundle_path):
+    print 'Bundle directory had been created'
+else:
+    res = subprocess.Popen('mkdir ' + bundle_path, shell=True, stdout=subprocess.PIPE)
     (stdoutput,erroutput) = res.communicate()
 
 empty = True
@@ -52,5 +67,5 @@ if empty:
     print 'Finished install the final_vim'
 else:
     print 'Finished upgrade the final_vim'
-print 'Enjoy!!!'
 print '*'*60
+show_info()
