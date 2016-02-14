@@ -43,7 +43,7 @@ def link_vimrc():
     stdoutput = res.communicate()
     print 'Had link the final_vimrc to .vimrc'
 
-
+welcome()
 
 if os.path.exists(final_vim_path):
     print 'Final_vim directory had been created'
