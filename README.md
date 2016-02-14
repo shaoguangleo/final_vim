@@ -2,6 +2,9 @@
 配置最终vim环境的简便方法
 The easiest way to config the VIM - final vim
 
+# 一步搞定
+下载**install.py** ,运行**./install.py**即可将**final_vim**安装到你的系统中。
+
 # 如何安装
 ##配置安装VundleVim
 
