@@ -69,7 +69,7 @@ filetype plugin indent on    " required
 ##安装插件
  - 打开vim，然后运行**:PluginInstall**即可。
  - 命令行安装**$ vim + PluginInstall + qall**
- 
+
 ##插件列表
 - [nerdtree](https://github.com/scrooloose/nerdtree) A tree explorer plugin for vim.
 - [nerdcommenter](https://github.com/scrooloose/nerdcommenter) Vim plugin for intensely orgasmic commenting
@@ -101,12 +101,17 @@ filetype plugin indent on    " required
 
 # OS
 
-##MacOSX
-###VIM版本
+### 安装依赖
+
+首先肯定需要**git vim ctags**
+
+## MacOSX
+
+### VIM版本
  - Vim - Vi IMproved 7.4 (2013 Aug 10)
  - MacOSX - EI Capitan 10.11.3
 
-###安装依赖
+### 安装依赖
 ```
 brew install vim git npm ctags
 sudo npm -g install instant-markdown-d jshint
