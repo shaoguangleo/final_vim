@@ -8,6 +8,11 @@ import subprocess
 import os
 import time
 
+
+# Default setting
+final_vim_path = os.environ['HOME'] + '/' + '.vim'
+bundle_path = os.path.join(final_vim_path + '/bundle')
+
 def welcome():
     'Here will download the whole final-vim git repo'
     print 'Welcome my friend!'
@@ -25,9 +30,20 @@ def show_info():
     print 'Any issue/need/question, goto https://github.com/shaoguangleo/final_vim, see you there.'
     print 'Anyway, Enjoy!!!'
 
+def install_plugins():
+    'Will install all the bundle plugins'
+    cmd = 'vim +PluginInstall +qall 2>/dev/null'
+    res = subprocess.Popen(cmd, shell=True, stdout = subprocess.PIPE)
+    stdoutput = res.communicate()
 
-final_vim_path = os.environ['HOME'] + '/' + '.vim'
-bundle_path = os.path.join(final_vim_path + '/bundle')
+def link_vimrc():
+    'Will link default vimrc to final_vim'
+    cmd = 'ln -s ' + final_vim_path +'/vimrc ' + os.environ['HOME']+'/.vimrc'
+    res = subprocess.Popen(cmd, shell = True, stdout = subprocess.PIPE)
+    stdoutput = res.communicate()
+    print 'Had link the final_vimrc to .vimrc'
+
+
 
 if os.path.exists(final_vim_path):
     print 'Final_vim directory had been created'
@@ -62,10 +78,14 @@ else:
     res = subprocess.Popen('git pull', shell=True, stdout=subprocess.PIPE)
     (stdoutput,erroutput) = res.communicate()
 
+install_plugins()
+link_vimrc()
+
 print '*'*60
 if empty:
     print 'Finished install the final_vim'
 else:
     print 'Finished upgrade the final_vim'
 print '*'*60
+
 show_info()
