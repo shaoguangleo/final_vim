@@ -64,7 +64,7 @@ set smartcase
 
 set guifont=Menlo:h14
 
-colorscheme Tomorrow-Night-Bright
+" colorscheme Tomorrow-Night-Bright
 " 使用自带配色
 "colorscheme elflord
 "set background=dark
