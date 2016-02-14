@@ -16,3 +16,6 @@ source ~/.final_vim/macosx_python.vim
 
 " Here for pythoner
 source ~/.final_vim/python.vim
+
+" Setting the color schme
+:colorschme Tomorrow-Night-Bright
