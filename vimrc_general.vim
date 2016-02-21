@@ -93,3 +93,11 @@ set smarttab
 " 缩进
 set autoindent
 set smartindent
+" 针对不同的文件类型采用不同的缩进格式
+filetype plugin indent on
+
+
+" 取消备份
+set nobackup
+set noswapfile
+

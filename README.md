@@ -69,6 +69,17 @@ filetype plugin indent on    " required
 ##安装插件
  - 打开vim，然后运行**:PluginInstall**即可。
  - 命令行安装**$ vim + PluginInstall + qall**
+ 
+## 插件的简短说明
+
+命令 | 说明
+----|-----
+:PluginList       | 列出配置的插件
+:PluginInstall    | 安装插件
+:PluginUpdate     | 更新插件
+:PluginSearch xxx  |搜索插件xxx，加上!可以刷新本地cache
+:PluginClean       |确认移除不用的插件
+:h vundle          |查看更详细的信息
 
 ##插件列表
 - [nerdtree](https://github.com/scrooloose/nerdtree) A tree explorer plugin for vim.

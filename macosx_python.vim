@@ -46,40 +46,14 @@ Plugin 'scrooloose/nerdtree'
 
 call vundle#end()
 
-" 针对不同的文件类型采用不同的缩进格式
-filetype plugin indent on
-
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just
-" :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to
-" auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
 
 """"""""""""""""""""""BASE CONFIG"""""""""""""""""""""""
-
-" 取消备份
-set nobackup
-set noswapfile
-
-
 
 " 保存文件时自动删除行尾空格或Tab
 autocmd BufWritePre * :%s/\s\+$//e
 
 " 保存文件时自动删除末尾空行
 autocmd BufWritePre * :%s/^$\n\+\%$//ge
-
-" 填充Tab
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set shiftround
 
 " 代码折叠 光标在缩进下方时用za命令折叠或展开
 set fdm=indent
