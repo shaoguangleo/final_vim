@@ -39,7 +39,7 @@ def install_plugins():
 
 def link_vimrc():
     'Will link default vimrc to final_vim'
-    cmd = 'ln -Fs ' + final_vim_path +'/vimrc ' + os.environ['HOME']+'/.vimrc'
+    cmd = 'ln -fFs ' + final_vim_path +'/vimrc ' + os.environ['HOME']+'/.vimrc'
     res = subprocess.Popen(cmd, shell = True, stdout = subprocess.PIPE)
     stdoutput = res.communicate()
     print 'Had link the final_vimrc to .vimrc'
