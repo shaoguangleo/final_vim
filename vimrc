@@ -7,7 +7,7 @@
 "
 
 " Here for Vundle vim
-source ~/.vim/bundle.vim
+" source ~/.vim/bundle.vim
 
 source ~/.final_vim/vimrc_general.vim
 
