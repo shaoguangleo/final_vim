@@ -15,7 +15,7 @@ source ~/.final_vim/vimrc_general.vim
 source ~/.final_vim/macosx_python.vim
 
 " Here for pythoner
-source ~/.final_vim/python.vim
+" source ~/.final_vim/python.vim
 
 " Setting the color schme
 set runtimepath += ~/.final_vim
