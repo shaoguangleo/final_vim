@@ -5,7 +5,8 @@
 # Division of Radio Astronomy Science and Technology
 # SHAO (Shanghai Astronomical Observatory) <http://www.shao.ac.cn>
 # CAS (Chinese Academy of Sciences)
-# Postal adress: No. 80 Nandan Road , Xuhui District, Shanghai, 200030 P. R. China
+# Postal adress: No. 80 Nandan Road , Xuhui District,
+#                Shanghai, 200030 P. R. China
 
 #
 # This program is free software: you can redistribute it and/or modify
@@ -84,9 +85,9 @@ def install_dependency():
         os.system('git pull')
 
     if os.path.exists('/etc/debian_version'):
-        os.system('apt-get install -y python-flake8 python3-flake8 flake flake8')
+        os.system('apt-get install -y python-flake8 python3-flake8 flake flake8 exuberant-ctags')
     elif os.path.exists('/etc/redhat_version'):
-        os.system('yum install -y python-flake8')
+        os.system('yum install -y python-flake8 ctags')
 
 def install_plugins():
     print ('Will install all the bundle plugins')
