@@ -18,5 +18,5 @@ source ~/.final_vim/vimrc_general.vim
 " source ~/.final_vim/python.vim
 
 " Setting the color schme
-set runtimepath += ~/.final_vim
+set runtimepath+=~/.final_vim
 colorscheme Tomorrow-Night-Bright
