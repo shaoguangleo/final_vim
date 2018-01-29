@@ -8,6 +8,14 @@ import subprocess
 import os
 import time
 
+name = '''
+ _____ ___ _   _    _    _       __     _____ __  __
+|  ___|_ _| \ | |  / \  | |      \ \   / /_ _|  \/  |
+| |_   | ||  \| | / _ \ | |   ____\ \ / / | || |\/| |
+|  _|  | || |\  |/ ___ \| |__|_____\ V /  | || |  | |
+|_|   |___|_| \_/_/   \_\_____|     \_/  |___|_|  |_|
+
+'''
 
 # Default setting
 final_vim_path = os.environ['HOME'] + '/' + '.final_vim'
@@ -29,6 +37,9 @@ def show_info():
     print 'Welcome to the final_vim world'
     print 'Any issue/need/question, goto https://github.com/shaoguangleo/final_vim, see you there.'
     print 'Anyway, Enjoy!!!'
+    print (name)
+
+
 
 def install_plugins():
     'Will install all the bundle plugins'
@@ -49,7 +60,9 @@ welcome()
 if os.path.exists(final_vim_path):
     print 'Final_vim directory had been created'
 else:
-    res = subprocess.Popen('mkdir ' + final_vim_path, shell=True, stdout=subprocess.PIPE)
+    #res = subprocess.Popen('mkdir ' + final_vim_path, shell=True, stdout=subprocess.PIPE)
+    print ('Now will clone the repo')
+    res = subprocess.Popen('git clone https://github.com/shaoguangleo/final_vim.git ' + final_vim_path , shell=True, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
     (stdoutput,erroutput) = res.communicate()
 
 if os.path.exists(bundle_path):
@@ -59,6 +72,7 @@ else:
     (stdoutput,erroutput) = res.communicate()
 
 empty = True
+
 #for root, dirs, files in os.walk(final_vim_path):
 #    if(len(files) == 0):
 #        empty = True
@@ -70,10 +84,12 @@ empty = (temp == [])
 
 print empty
 
-if empty:
+if not os.path.exists(final_vim_path):
+    print ('Now will clone the repo')
     res = subprocess.Popen('git clone https://github.com/shaoguangleo/final_vim.git ~/.vim', shell=True, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
     (stdoutput,erroutput) = res.communicate()
 else:
+    print ('Now will update the repo')
     os.chdir(final_vim_path)
     print os.getcwd()
     res = subprocess.Popen('git pull', shell=True, stdout=subprocess.PIPE)

@@ -1,8 +1,21 @@
 # final_vim
+
 配置最终vim环境的简便方法
+
 The easiest way to config the VIM - final vim
 
+```
+ _____ ___ _   _    _    _       __     _____ __  __ 
+|  ___|_ _| \ | |  / \  | |      \ \   / /_ _|  \/  |
+| |_   | ||  \| | / _ \ | |   ____\ \ / / | || |\/| |
+|  _|  | || |\  |/ ___ \| |__|_____\ V /  | || |  | |
+|_|   |___|_| \_/_/   \_\_____|     \_/  |___|_|  |_|                                                     
+```
+
+
+
 # 一步搞定
+
 下载**install.py** ,运行**./install.py**即可将**final_vim**安装到你的系统中，下面可以一个命令搞定
 
 ```
@@ -10,7 +23,8 @@ curl -L https://raw.github.com/shaoguangleo/final_vim/master/install.py | python
 ```
 
 # 如何安装
-##配置安装VundleVim
+
+## 配置安装VundleVim
 
 在安装VundleVim之前需要先行安装**git和curl**。
 

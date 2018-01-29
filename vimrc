@@ -12,7 +12,7 @@
 source ~/.final_vim/vimrc_general.vim
 
 " If you develope python on MacOSX, then uncomment this
-source ~/.final_vim/macosx_python.vim
+" source ~/.final_vim/macosx_python.vim
 
 " Here for pythoner
 " source ~/.final_vim/python.vim
