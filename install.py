@@ -60,67 +60,36 @@ def install_dependency():
         os.system('yum install -y python-flake8')
 
 def install_plugins():
-    'Will install all the bundle plugins'
+    print ('Will install all the bundle plugins')
     cmd = 'vim +PluginInstall +qall 2>/dev/null'
     os.system(cmd)
 
 def link_vimrc():
     'Will link default vimrc to final_vim'
     cmd = 'ln -fFs ' + final_vim_path +'/vimrc ' + os.environ['HOME']+'/.vimrc'
-    res = subprocess.Popen(cmd, shell = True, stdout = subprocess.PIPE)
-    stdoutput = res.communicate()
-    print(stdoutput)
+    os.system(cmd)
     print 'Had link the final_vimrc to .vimrc'
 
+def final_vim_done():
+    print '*'*60
+    print 'Finished install/upgrade the final_vim'
+    print '*'*60
 
-if os.path.exists(final_vim_path):
-    print 'Final_vim directory had been created'
-else:
-    #res = subprocess.Popen('mkdir ' + final_vim_path, shell=True, stdout=subprocess.PIPE)
-    print ('Now will clone the repo')
-    res = subprocess.Popen('git clone https://github.com/shaoguangleo/final_vim.git ' + final_vim_path , shell=True, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
-    (stdoutput,erroutput) = res.communicate()
 
-if os.path.exists(bundle_path):
-    print 'Bundle directory had been created'
-else:
-    res = subprocess.Popen('mkdir ' + bundle_path, shell=True, stdout=subprocess.PIPE)
-    (stdoutput,erroutput) = res.communicate()
-
-empty = True
-
-#for root, dirs, files in os.walk(final_vim_path):
-#    if(len(files) == 0):
-#        empty = True
-#    else:
-#        empty = False
-temp = os.listdir(final_vim_path)
-
-empty = (temp == [])
-
-print empty
-
-if not os.path.exists(final_vim_path):
-    print ('Now will clone the repo')
-    res = subprocess.Popen('git clone https://github.com/shaoguangleo/final_vim.git ~/.vim', shell=True, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
-    (stdoutput,erroutput) = res.communicate()
-else:
-    print ('Now will update the repo')
-    os.chdir(final_vim_path)
-    print os.getcwd()
-    res = subprocess.Popen('git pull', shell=True, stdout=subprocess.PIPE)
-    (stdoutput,erroutput) = res.communicate()
+def install_final_vim():
+    if not os.path.exists(final_vim_path):
+        print ('Now will clone the repo')
+        cmd = 'git clone https://github.com/shaoguangleo/final_vim.git ~/.final_vim/' 
+        os.system(cmd)
+    else:
+        print ('Now will update the repo')
+        os.system('cd ' + final_vim_path)
+        os.system('git pull')
 
 welcome()
 install_dependency()
+install_final_vim()
 install_plugins()
 link_vimrc()
-
-print '*'*60
-if empty:
-    print 'Finished install the final_vim'
-else:
-    print 'Finished upgrade the final_vim'
-print '*'*60
-
+final_vim_done()
 show_info()

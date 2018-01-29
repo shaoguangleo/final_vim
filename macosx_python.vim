@@ -187,7 +187,7 @@ let g:jedi#completions_command = "<C-n>"
 " flake8
 let g:flake8_show_in_file = 1
 let g:flake8_show_in_gutter = 1
-autocmd! BufRead,BufWritePost *.py call Flake8()
+" autocmd! BufRead,BufWritePost *.py call flake8()
 
 " gitgutter
 let g:gitgutter_sign_modified = '*'
