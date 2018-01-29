@@ -26,9 +26,9 @@ func SetTitle()
         call append(line(".")+12, "# Purpose     :   ")
         call append(line(".")+13, "#")
         call append(line(".")+14, "# Author      :   Shaoguang Guo (SHAO)")
-        call append(line(".")+15, "# Phone       :   +86-21-34775565")
-        call append(line(".")+16, "#")
-        call append(line(".")+17, "# Created     :   ".strftime("%c"))
+        call append(line(".")+15, "# Email       :   sgguo@shao.ac.cn")
+        call append(line(".")+16, "# Created     :   ".strftime("%Y-%m-%d %H:%M:%S"))
+        call append(line(".")+17, "# Modified    :   ".strftime("%Y-%m-%d %H:%M:%S"))
         call append(line(".")+18, "#-------------------------------------------------------------------------------")
         call append(line(".")+19, "#")
 
@@ -50,8 +50,8 @@ func SetTitle()
         call append(line(".")+13, "#")
         call append(line(".")+14, "# Author      :   Shaoguang Guo (SHAO)")
         call append(line(".")+15, "# Email       :   sgguo@shao.ac.cn")
-        call append(line(".")+16, "#")
-        call append(line(".")+17, "# Created     :   ".strftime("%c"))
+        call append(line(".")+16, "# Created     :   ".strftime("%Y-%m-%d %H:%M:%S"))
+        call append(line(".")+17, "# Modified    :   ".strftime("%Y-%m-%d %H:%M:%S"))
         call append(line(".")+18, "#-------------------------------------------------------------------------------")
         call append(line(".")+19, "#")
 
@@ -87,3 +87,13 @@ func SetTitle()
 	"新建文件后，自动定位到文件末尾
 endfunc 
 autocmd BufNewFile * normal G
+
+func DateInsert()
+    call cursor(9,1)
+    if search('Modified') != 0
+        let line = line('.')
+        call setline(line, '# Modified    :   '.strftime("%Y-%m-%d %H:%M:%S"))
+    endif
+endfunc
+
+autocmd FileWritePre,BufWritePre *.cpp,*.[ch],*.sh,*.rb,*.java,*.py ks|call DateInsert() | 's 
