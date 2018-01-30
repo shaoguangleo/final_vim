@@ -44,6 +44,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 
+Plugin 'DoxygenToolkit.vim'
 call vundle#end()
 
 
