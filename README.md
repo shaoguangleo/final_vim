@@ -36,11 +36,8 @@ Ctrl+w +v | 左右分割窗口
 Ctrl+w +s |上下分割窗口
 Ctrl+w  +q |关闭窗口
 
-F9        | 运行该脚本
-F10        | 运行该脚本
+## 插件列表
 
-
-##插件列表
 - [nerdtree](https://github.com/scrooloose/nerdtree) A tree explorer plugin for vim.
 - [nerdcommenter](https://github.com/scrooloose/nerdcommenter) Vim plugin for intensely orgasmic commenting
 - [tagbar](https://github.com/majutsushi/tagbar) Vim plugin that displays tags in a window(ctags is needed)

@@ -11,8 +11,8 @@
 
 source ~/.final_vim/vimrc_general.vim
 
-" If you develope python on MacOSX, then uncomment this
-source ~/.final_vim/macosx_python.vim
+" Import the plugins
+source ~/.final_vim/plugins.vim
 
 " Here for pythoner
 " source ~/.final_vim/python.vim

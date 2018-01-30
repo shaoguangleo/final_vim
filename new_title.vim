@@ -14,7 +14,7 @@ func SetTitle()
         call append(line("."),"# coding=utf-8")
 	    call append(line(".")+1, "#")
         call append(line(".")+2, "###############################################################################")
-        call append(line(".")+3, "# Copyright (C) 2010 - 2018")
+        call append(line(".")+3, "# Copyright (C) 2010 - ".strftime("%Y"))
         call append(line(".")+4, "# Division of Radio Astronomy Science and Technology")
         call append(line(".")+5, "# SHAO (Shanghai Astronomical Observatory) <http://www.shao.ac.cn>")
         call append(line(".")+6, "# CAS (Chinese Academy of Sciences)")
@@ -37,7 +37,7 @@ func SetTitle()
         call append(line("."),"# encoding: utf-8")
 	    call append(line(".")+1, "#")
         call append(line(".")+2, "###############################################################################")
-        call append(line(".")+3, "# Copyright (C) 2010 - 2018. All rights reserved.")
+        call append(line(".")+3, "# Copyright (C) 2010 - ".strftime("%Y"))
         call append(line(".")+4, "# Division of Radio Astronomy Science and Technology")
         call append(line(".")+5, "# SHAO (Shanghai Astronomical Observatory) <http://www.shao.ac.cn>")
         call append(line(".")+6, "# CAS (Chinese Academy of Sciences)")
@@ -58,31 +58,39 @@ func SetTitle()
 "    elseif &filetype == 'mkd'
 "        call setline(1,"<head><meta charset=\"UTF-8\"></head>")
 	else 
-		call setline(1, "/*************************************************************************") 
-		call append(line("."), "	> File Name     :   ".expand("%")) 
-		call append(line(".")+1, "	> Author        :   Guo Shaoguang ") 
-		call append(line(".")+2, "	> Mail          :   sgguo@shao.ac.cn") 
-		call append(line(".")+3, "	> Created       :   ".strftime("%c")) 
-		call append(line(".")+4, " ************************************************************************/") 
-		call append(line(".")+5, "")
+		call setline(1, "/**") 
+        call append(line(".")   , "* Copyright (C) 2010 - ".strftime("%Y"))
+        call append(line(".") +1, "* Division of Radio Astronomy Science and Technology")
+        call append(line(".")+2, "* SHAO (Shanghai Astronomical Observatory) <http://www.shao.ac.cn>")
+        call append(line(".")+3, "* CAS (Chinese Academy of Sciences)")
+        call append(line(".")+4, "* Postal adress: 80# Nandan Road , Xuhui District, Shanghai, 200030 P. R. China")
+        call append(line(".")+5, "*")
+		call append(line(".")+6, "* @file           :   ".expand("%")) 
+		call append(line(".")+7, "* @author         :   Guo Shaoguang ") 
+        call append(line(".")+8, "* @mail           :   sgguo@shao.ac.cn") 
+        call append(line(".")+9, "* @version        :   v1.0") 
+        call append(line(".")+10,"* @created        :   ".strftime("%Y-%m-%d %H:%M:%S"))
+        call append(line(".")+11,"* @modified       :   ".strftime("%Y-%m-%d %H:%M:%S"))
+		call append(line(".")+12, "*/") 
+		call append(line(".")+13, "")
 	endif
 	if expand("%:e") == 'cpp'
-		call append(line(".")+6, "#include<iostream>")
-		call append(line(".")+7, "using namespace std;")
-		call append(line(".")+8, "")
+		call append(line(".")+14, "#include<iostream>")
+		call append(line(".")+15, "using namespace std;")
+		call append(line(".")+16, "")
 	endif
-	if &filetype == 'c'
-		call append(line(".")+6, "#include<stdio.h>")
-		call append(line(".")+7, "")
+	if expand("%.e") == 'c'
+		call append(line(".")+14, "#include<stdio.h>")
+		call append(line(".")+15, "")
 	endif
 	if expand("%:e") == 'h'
-		call append(line(".")+6, "#ifndef _".toupper(expand("%:r"))."_H")
-		call append(line(".")+7, "#define _".toupper(expand("%:r"))."_H")
-		call append(line(".")+8, "#endif")
+		call append(line(".")+14, "#ifndef _".toupper(expand("%:r"))."_H")
+		call append(line(".")+15, "#define _".toupper(expand("%:r"))."_H")
+		call append(line(".")+16, "#endif")
 	endif
-	if &filetype == 'java'
-		call append(line(".")+6,"public class ".expand("%:r"))
-		call append(line(".")+7,"")
+	if expand("%.e") == 'java'
+		call append(line(".")+14,"public class ".expand("%:r"))
+		call append(line(".")+15,"")
 	endif
 	"新建文件后，自动定位到文件末尾
 endfunc 
@@ -93,6 +101,10 @@ func DateInsert()
     if search('Modified') != 0
         let line = line('.')
         call setline(line, '# Modified    :   '.strftime("%Y-%m-%d %H:%M:%S"))
+    endif
+    if search('modified') != 0
+        let line = line('.')
+        call setline(line, '* @modified       :   '.strftime("%Y-%m-%d %H:%M:%S"))
     endif
 endfunc
 
