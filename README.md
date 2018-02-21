@@ -14,13 +14,20 @@ The easiest way to config the VIM - final vim
 
 
 
-# 一步搞定
+# ONE STEP  一步搞定
 
 下载**install.py** ,运行**./install.py**即可将**final_vim**安装到你的系统中，下面可以一个命令搞定
 
 ```
 curl -L https://raw.github.com/shaoguangleo/final_vim/master/install.py | python
 ```
+
+or
+
+```
+wget -L https://raw.github.com/shaoguangleo/final_vim/master/install.py | python
+```
+
 
 # 快捷键
 
