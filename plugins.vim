@@ -45,6 +45,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 
 Plugin 'DoxygenToolkit.vim'
+Plugin 'wakatime/vim-wakatime'
 call vundle#end()
 
 
