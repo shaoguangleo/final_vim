@@ -22,4 +22,6 @@ source ~/.final_vim/new_title.vim
 
 " Setting the color schme
 set runtimepath+=~/.final_vim
+set runtimepath+=~/.final_vim/vim-plugins
+set runtimepath+=~/.final_vim/bundle
 colorscheme Tomorrow-Night-Bright

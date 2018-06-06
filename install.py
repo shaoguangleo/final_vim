@@ -78,11 +78,19 @@ def show_info():
 def install_dependency():
     print_msg('Now install dependecy software')
     time.sleep(stay_sec)
-    if not os.path.exists('~/.vim/bundle/Vundle.vim'):
-        os.system('git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim')
+    if not os.path.exists(final_vim_path + '/bundle/Vundle.vim'):
+        os.system('git clone https://github.com/VundleVim/Vundle.vim.git ' + final_vim_path + '/bundle/Vundle.vim')
     else:
-        os.system('cd ~/.vim/bundle/Vundle.vim')
+        os.system('cd ' + final_vim_path + '/bundle/Vundle.vim')
         os.system('git pull')
+
+    if not os.path.exists(final_vim_path + '/vim-plugins/README.md'):
+        os.system('git clone  https://github.com/WolfgangMehner/vim-plugins ' + final_vim_path + '/vim-plugins')
+    else:
+        os.system('cd ' + final_vim_path + '/vim-plugins')
+        os.system('git pull')
+    print ('Update the Template')
+    os.system('cp Templates ' + final_vim_path + '/vim-plugins/template-support/templates/')
 
     if os.path.exists('/etc/debian_version'):
         os.system('apt-get install -y python-flake8 python3-flake8 flake flake8 exuberant-ctags')
@@ -107,7 +115,7 @@ def final_vim_done():
 def install_final_vim():
     if not os.path.exists(final_vim_path):
         print ('Now will clone the repo')
-        cmd = 'git clone https://github.com/shaoguangleo/final_vim.git ~/.final_vim/' 
+        cmd = 'git clone https://github.com/shaoguangleo/final_vim.git ~/.final_vim/'
         os.system(cmd)
     else:
         print ('Now will update the repo')
