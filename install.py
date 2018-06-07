@@ -145,8 +145,8 @@ def back_up_vim():
 if __name__ == '__main__':
     welcome()
     back_up_vim()
-    install_dependency()
     install_final_vim()
+    install_dependency()
     install_plugins()
     link_vimrc()
     final_vim_done()
