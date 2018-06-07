@@ -37,6 +37,7 @@
 
 import os
 import time
+import time as t
 
 name = '''
  _____ ___ _   _    _    _       __     _____ __  __
@@ -50,6 +51,7 @@ name = '''
 # Default setting
 final_vim_path = os.environ['HOME'] + '/' + '.final_vim'
 bundle_path = os.path.join(final_vim_path + '/bundle')
+home_path = os.environ['HOME']
 stay_sec = 2
 
 def print_msg(msg):
@@ -61,17 +63,17 @@ def print_msg(msg):
 
 def welcome():
     'Here will download the whole final-vim git repo'
-    print 'Welcome my friend!'
-    print 'You are about to install final_vim. Ready? Let us do the awesome thing in %d seconds.' % stay_sec
+    print ('Welcome my friend!')
+    print ('You are about to install final_vim. Ready? Let us do the awesome thing in %d seconds.') % stay_sec
     time.sleep(stay_sec)
     print_msg('Now begin to install the final_vim')
 
 def show_info():
     'Will show information when finish install final_vim'
-    print 'There you are.'
-    print 'Welcome to the final_vim world'
-    print 'Any issue/need/question, goto https://github.com/shaoguangleo/final_vim, see you there.'
-    print 'Anyway, Enjoy!!!'
+    print ('There you are.')
+    print ('Welcome to the final_vim world')
+    print ('Any issue/need/question, goto https://github.com/shaoguangleo/final_vim, see you there.')
+    print ('Anyway, Enjoy!!!')
     print (name)
 
 
@@ -106,7 +108,7 @@ def link_vimrc():
     'Will link default vimrc to final_vim'
     cmd = 'ln -fFs ' + final_vim_path +'/vimrc ' + os.environ['HOME']+'/.vimrc'
     os.system(cmd)
-    print 'Had link the final_vimrc to .vimrc'
+    print ('Had link the final_vimrc to .vimrc')
 
 def final_vim_done():
     print_msg('Finished install/upgrade the final_vim')
@@ -114,16 +116,35 @@ def final_vim_done():
 
 def install_final_vim():
     if not os.path.exists(final_vim_path):
-        print ('Now will clone the repo')
+        print_msg ('Now will clone the repo')
         cmd = 'git clone https://github.com/shaoguangleo/final_vim.git ~/.final_vim/'
         os.system(cmd)
     else:
-        print ('Now will update the repo')
+        print_msg ('Now will update the repo')
         os.system('cd ' + final_vim_path)
         os.system('git pull')
 
+def get_now_time():
+    now = t.time()
+    gmt = t.gmtime(now)
+    return (t.strftime('%Y-%m-%d-%H-%M-%s', gmt))
+
+def back_up_vim():
+    nowtime = get_now_time()
+    if os.path.exists(home_path + "/.vim"):
+        print_msg ('Now back up vim => ~/.vim_' + nowtime)
+        cmd = 'mv ' + home_path + '/.vim ' + home_path + '/.vim_'+nowtime
+        os.system(cmd)
+    if os.path.isfile(home_path + "/.vimrc"):
+        print_msg ('Now back up vim => ~/.vimrc_' + nowtime)
+        cmd = 'mv ' + home_path + '/.vimrc ' + home_path + '/.vimrc_'+nowtime
+        os.system(cmd)
+    print_msg("Finish Backup")
+
+
 if __name__ == '__main__':
     welcome()
+    back_up_vim()
     install_dependency()
     install_final_vim()
     install_plugins()

@@ -43,9 +43,16 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-
+Plugin 'scrooloose/syntastic'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/ListToggle'
 Plugin 'DoxygenToolkit.vim'
 Plugin 'wakatime/vim-wakatime'
+
+
+" vim scripts
+Plugin 'taglist.vim'
+Plugin 'a.vim'
 call vundle#end()
 
 

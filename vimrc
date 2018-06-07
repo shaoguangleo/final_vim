@@ -13,6 +13,7 @@ source ~/.final_vim/vimrc_general.vim
 
 " Import the plugins
 source ~/.final_vim/plugins.vim
+source ~/.final_vim/plugins_setting.vim
 
 " Here for pythoner
 " source ~/.final_vim/python.vim

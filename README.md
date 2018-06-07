@@ -25,7 +25,7 @@ curl -L https://raw.github.com/shaoguangleo/final_vim/master/install.py | python
 or
 
 ```
-wget -L https://raw.github.com/shaoguangleo/final_vim/master/install.py | python
+wget -L https://raw.github.com/shaoguangleo/final_vim/master/install.py | python; vim +PluginInstall
 ```
 
 
