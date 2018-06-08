@@ -95,9 +95,9 @@ def install_dependency():
     os.system('cp Templates ' + final_vim_path + '/vim-plugins/template-support/templates/')
 
     if os.path.exists('/etc/debian_version'):
-        os.system('apt-get install -y python-flake8 python3-flake8 flake flake8 exuberant-ctags')
+        os.system('sudo apt-get install -y python-flake8 python3-flake8 flake flake8 exuberant-ctags')
     elif os.path.exists('/etc/redhat_version'):
-        os.system('yum install -y python-flake8 ctags')
+        os.system('sudo yum install -y python-flake8 ctags')
 
 def install_plugins():
     print ('Will install all the bundle plugins')
